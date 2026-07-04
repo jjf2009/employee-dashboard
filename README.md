@@ -175,7 +175,7 @@ This project was built with AI-assisted development. Tools and skills referenced
 
 | Tool / Skill | How it was used |
 |--------------|-----------------|
-| **Cursor / Grok (AI coding agent)** | Feature implementation, refactors, lint fixes, README |
+| **Grok (AI coding agent)** | Feature implementation, refactors, lint fixes, README |
 | **vercel-react-best-practices** | React performance patterns (direct imports, memoization guidance) |
 | **agent.md** | Per-feature spec driving scope, structure, and conventions |
 | **Google Gemini API** | Announcement assistant (server-side only) |

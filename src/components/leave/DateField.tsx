@@ -31,7 +31,7 @@ export function DateField({
             variant="outline"
             disabled={disabled}
             className={cn(
-              'w-full justify-start text-left font-normal',
+              'min-h-11 w-full justify-start text-left font-normal',
               !value && 'text-muted-foreground',
               error && 'border-destructive',
             )}

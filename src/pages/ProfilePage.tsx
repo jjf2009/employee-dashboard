@@ -13,9 +13,11 @@ export function ProfilePage() {
     <>
       <Header employee={currentEmployee} title="Profile" />
       <main className="flex-1 space-y-6 p-4 sm:p-6 lg:p-8">
-      <ProfileHeader profile={employeeProfile} />
-      <ProfileInfoCard profile={employeeProfile} />
-      <EmploymentSummary profile={employeeProfile} />
+        <ProfileHeader profile={employeeProfile} />
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <ProfileInfoCard profile={employeeProfile} />
+          <EmploymentSummary profile={employeeProfile} />
+        </div>
       </main>
     </>
   )

@@ -25,9 +25,9 @@ export function AttendanceChart({ data }: AttendanceChartProps) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="h-[320px] w-full">
+        <div className="h-[260px] w-full min-w-0 sm:h-[300px] lg:h-[320px]">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={data} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
+            <BarChart data={data} margin={{ top: 8, right: 4, left: -12, bottom: 0 }}>
               <CartesianGrid
                 strokeDasharray="3 3"
                 stroke="var(--border)"
@@ -54,7 +54,10 @@ export function AttendanceChart({ data }: AttendanceChartProps) {
                 labelStyle={{ color: 'var(--foreground)' }}
                 itemStyle={{ color: 'var(--foreground)' }}
               />
-              <Legend wrapperStyle={{ color: 'var(--foreground)' }} />
+              <Legend
+                wrapperStyle={{ color: 'var(--foreground)', paddingTop: '8px' }}
+                iconSize={10}
+              />
               <Bar
                 dataKey="present"
                 name="Present"

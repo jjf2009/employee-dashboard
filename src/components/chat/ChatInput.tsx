@@ -19,15 +19,21 @@ export function ChatInput({ value, onChange, onSend, disabled }: ChatInputProps)
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 border-t border-border p-3">
+    <form onSubmit={handleSubmit} className="flex gap-2 border-t border-border p-3 sm:p-4">
       <Input
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Ask about announcements..."
         disabled={disabled}
         aria-label="Chat message"
+        className="min-h-11"
       />
-      <Button type="submit" size="icon" disabled={disabled || !value.trim()}>
+      <Button
+        type="submit"
+        size="icon"
+        className="h-11 w-11 shrink-0"
+        disabled={disabled || !value.trim()}
+      >
         <Send className="h-4 w-4" />
         <span className="sr-only">Send message</span>
       </Button>

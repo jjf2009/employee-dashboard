@@ -57,7 +57,7 @@ export function AnnouncementsPage() {
         title="Announcements"
         description="Stay up to date with company news and updates."
       />
-      <main className="flex-1 p-4 sm:p-6 lg:p-8">
+      <main className="flex-1 p-4 pb-24 sm:p-6 sm:pb-24 lg:p-8 lg:pb-24">
         <AnnouncementTimeline announcements={announcements} />
       </main>
 

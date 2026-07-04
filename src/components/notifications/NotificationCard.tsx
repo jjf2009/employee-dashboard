@@ -49,7 +49,7 @@ export function NotificationCard({ notification }: NotificationCardProps) {
         !notification.isRead && 'border-primary/30 bg-accent/50',
       )}
     >
-      <CardContent className="flex gap-4 p-4">
+      <CardContent className="flex gap-3 p-4 sm:gap-4">
         <div
           className={cn(
             'flex h-10 w-10 shrink-0 items-center justify-center rounded-full',
@@ -63,7 +63,7 @@ export function NotificationCard({ notification }: NotificationCardProps) {
           <div className="flex items-start justify-between gap-2">
             <h3
               className={cn(
-                'text-sm',
+                'text-sm break-words',
                 notification.isRead ? 'font-medium' : 'font-semibold',
               )}
             >

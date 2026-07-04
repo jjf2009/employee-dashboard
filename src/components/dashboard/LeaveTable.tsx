@@ -31,33 +31,33 @@ export function LeaveTable({ requests }: LeaveTableProps) {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Type</TableHead>
-              <TableHead>Dates</TableHead>
-              <TableHead>Days</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Reason</TableHead>
-              <TableHead>Submitted</TableHead>
+              <TableHead className="whitespace-nowrap">Type</TableHead>
+              <TableHead className="whitespace-nowrap">Dates</TableHead>
+              <TableHead className="whitespace-nowrap">Days</TableHead>
+              <TableHead className="whitespace-nowrap">Status</TableHead>
+              <TableHead className="min-w-[120px] whitespace-nowrap">Reason</TableHead>
+              <TableHead className="whitespace-nowrap">Submitted</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {requests.map((request) => (
               <TableRow key={request.id}>
-                <TableCell className="font-medium">
+                <TableCell className="whitespace-nowrap font-medium">
                   {typeLabels[request.type]}
                 </TableCell>
-                <TableCell>
+                <TableCell className="whitespace-nowrap">
                   {formatDate(request.startDate)}
                   {request.startDate !== request.endDate &&
                     ` – ${formatDate(request.endDate)}`}
                 </TableCell>
-                <TableCell>{request.days}</TableCell>
-                <TableCell>
+                <TableCell className="whitespace-nowrap">{request.days}</TableCell>
+                <TableCell className="whitespace-nowrap">
                   <LeaveStatusBadge status={request.status} />
                 </TableCell>
                 <TableCell className="max-w-[200px] truncate text-muted-foreground">
                   {request.reason}
                 </TableCell>
-                <TableCell className="text-muted-foreground">
+                <TableCell className="whitespace-nowrap text-muted-foreground">
                   {formatDate(request.submittedAt)}
                 </TableCell>
               </TableRow>

@@ -118,7 +118,7 @@ export function ApplyLeaveForm() {
         )}
       />
 
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
+      <Button type="submit" className="min-h-11 w-full" disabled={isSubmitting}>
         {isSubmitting ? (
           <>
             <Loader2 className="h-4 w-4 animate-spin" />

@@ -23,10 +23,10 @@ export function DashboardPage() {
         title="Dashboard"
         description="Your attendance and leave overview."
       />
-      <main className="flex-1 space-y-10 p-4 sm:p-6 lg:p-8">
+      <main className="flex-1 space-y-8 p-4 sm:space-y-10 sm:p-6 lg:p-8">
         <section className="space-y-4">
           <h2 className="text-lg font-semibold tracking-tight">Attendance</h2>
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <AttendanceChart data={annualAttendanceOverview} />
             <AttendanceCalendar
               year={2026}

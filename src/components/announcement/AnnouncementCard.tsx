@@ -34,7 +34,7 @@ export function AnnouncementCard({ announcement }: AnnouncementCardProps) {
           <AnnouncementBadge category={announcement.category} />
           <span className="text-xs text-muted-foreground">{announcement.time}</span>
         </div>
-        <CardTitle className="text-lg">{announcement.title}</CardTitle>
+        <CardTitle className="text-base break-words sm:text-lg">{announcement.title}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="text-sm leading-relaxed text-muted-foreground">

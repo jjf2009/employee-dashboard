@@ -22,7 +22,7 @@ export function ProfileInfoCard({ profile }: ProfileInfoCardProps) {
         <CardTitle>Personal Information</CardTitle>
       </CardHeader>
       <CardContent>
-        <dl className="grid gap-4 sm:grid-cols-2">
+        <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {fields.map((field) => (
             <div key={field.label}>
               <dt className="text-sm text-muted-foreground">{field.label}</dt>

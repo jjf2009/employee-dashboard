@@ -48,8 +48,8 @@ export function TeamPage() {
         description="Find and connect with your colleagues."
       />
       <main className="flex-1 space-y-6 p-4 sm:p-6 lg:p-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <SearchBar value={search} onChange={setSearch} />
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <SearchBar value={search} onChange={setSearch} className="md:max-w-md lg:max-w-lg" />
           <p className="text-sm text-muted-foreground">
             {filteredEmployees.length} of {employees.length} employees
           </p>
@@ -62,7 +62,7 @@ export function TeamPage() {
         />
 
         {filteredEmployees.length > 0 ? (
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {filteredEmployees.map((employee) => (
               <EmployeeCard key={employee.id} employee={employee} />
             ))}

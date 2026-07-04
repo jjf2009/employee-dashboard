@@ -13,7 +13,7 @@ export function FloatingChatButton({ onClick, isOpen }: FloatingChatButtonProps)
       type="button"
       size="icon"
       className={cn(
-        'fixed right-4 bottom-4 z-50 h-14 w-14 rounded-full shadow-lg',
+        'fixed right-4 bottom-4 z-40 h-12 w-12 rounded-full shadow-lg sm:h-14 sm:w-14',
         isOpen && 'bg-secondary text-secondary-foreground',
       )}
       onClick={onClick}

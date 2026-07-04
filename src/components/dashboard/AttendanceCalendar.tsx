@@ -62,21 +62,21 @@ export function AttendanceCalendar({ year, month, days, today }: AttendanceCalen
         <CardDescription>{monthLabel} — daily attendance status.</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="mb-3 grid grid-cols-7 gap-1 text-center text-xs font-medium text-muted-foreground">
+        <div className="mb-3 grid grid-cols-7 gap-0.5 text-center text-[10px] font-medium text-muted-foreground sm:gap-1 sm:text-xs">
           {WEEKDAYS.map((day) => (
             <div key={day}>{day}</div>
           ))}
         </div>
 
-        <div className="grid grid-cols-7 gap-1">
+        <div className="grid grid-cols-7 gap-0.5 sm:gap-1">
           {calendarCells.map((cell) =>
             cell.day === null ? (
-              <div key={cell.key} className="aspect-square" />
+              <div key={cell.key} className="aspect-square min-w-0" />
             ) : (
               <div
                 key={cell.key}
                 className={cn(
-                  'flex aspect-square items-center justify-center rounded-md text-sm font-medium',
+                  'flex aspect-square min-h-8 min-w-0 items-center justify-center rounded-md text-xs font-medium sm:min-h-0 sm:text-sm',
                   cell.status === 'neutral'
                     ? 'bg-card text-foreground ring-1 ring-border'
                     : statusStyles[cell.status],

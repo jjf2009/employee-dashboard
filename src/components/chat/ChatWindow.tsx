@@ -35,7 +35,7 @@ export function ChatWindow({
   if (!isOpen) return null
 
   return (
-    <div className="fixed right-4 bottom-20 z-50 flex h-[min(520px,calc(100vh-6rem))] w-[min(380px,calc(100vw-2rem))] flex-col overflow-hidden rounded-xl border border-border bg-card shadow-lg">
+    <div className="fixed inset-x-0 bottom-0 z-50 flex h-[min(520px,calc(100dvh-4.5rem))] flex-col overflow-hidden rounded-t-xl border border-border bg-card shadow-lg sm:inset-x-auto sm:right-4 sm:bottom-20 sm:h-[min(520px,calc(100vh-6rem))] sm:w-[min(380px,calc(100vw-2rem))] sm:rounded-xl">
       <div className="flex items-center justify-between border-b border-border px-4 py-3">
         <div>
           <h3 className="text-sm font-semibold">Announcement Assistant</h3>

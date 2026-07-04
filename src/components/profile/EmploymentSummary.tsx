@@ -34,7 +34,7 @@ export function EmploymentSummary({ profile }: EmploymentSummaryProps) {
         <CardTitle>Employment Summary</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1">
           {summaryItems.map((item) => (
             <div
               key={item.key}

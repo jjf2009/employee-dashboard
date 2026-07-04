@@ -15,7 +15,7 @@ export function ApplyLeavePage() {
         description="Submit a new leave request for manager approval."
       />
       <main className="flex flex-1 justify-center p-4 sm:p-6 lg:p-8">
-        <Card className="w-full max-w-lg">
+        <Card className="w-full max-w-lg md:max-w-md lg:max-w-lg">
           <CardHeader>
             <CardTitle>Apply for Leave</CardTitle>
             <CardDescription>

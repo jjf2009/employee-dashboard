@@ -8,19 +8,21 @@ interface SearchBarProps {
   value: string
   onChange: (value: string) => void
   placeholder?: string
+  className?: string
 }
 
 export function SearchBar({
   value,
   onChange,
   placeholder = 'Search employees...',
+  className,
 }: SearchBarProps) {
   const { isListening, isSupported, error, startListening } = useVoiceSearch({
     onResult: onChange,
   })
 
   return (
-    <div className="w-full space-y-1.5">
+    <div className={cn('w-full space-y-1.5', className)}>
       <div className="flex gap-2">
         <div className="relative min-w-0 flex-1">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -28,7 +30,7 @@ export function SearchBar({
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
-            className="pl-9"
+            className="min-h-11 pl-9"
             aria-label="Search employees"
           />
         </div>
@@ -37,7 +39,7 @@ export function SearchBar({
           type="button"
           variant={isListening ? 'default' : 'outline'}
           size="icon"
-          className={cn('shrink-0', isListening && 'animate-pulse')}
+          className={cn('h-11 w-11 shrink-0', isListening && 'animate-pulse')}
           onClick={startListening}
           aria-label={isListening ? 'Stop voice search' : 'Start voice search'}
           title={

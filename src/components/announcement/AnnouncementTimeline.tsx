@@ -11,9 +11,9 @@ export function AnnouncementTimeline({ announcements }: AnnouncementTimelineProp
   const groups = groupAnnouncementsByDate(announcements)
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 md:space-y-8">
       {groups.map((group) => (
-        <section key={group.date} className="space-y-4">
+        <section key={group.date} className="space-y-3 md:space-y-4">
           <DateHeading label={group.heading} />
           <div className="space-y-4">
             {group.items.map((announcement) => (

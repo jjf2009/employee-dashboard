@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, HeartPulse } from 'lucide-react'
-import { NAV_ITEMS } from '@/constants/navigation'
+import { Bell, Menu, X, HeartPulse } from 'lucide-react'
+import { NAV_ITEMS, CURRENT_EMPLOYEE_ID } from '@/constants/navigation'
+import { employees } from '@/data/employees'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent } from '@/components/ui/sheet'
+import { ThemeToggle } from '@/components/theme/ThemeToggle'
+
+const currentEmployee = employees.find((e) => e.id === CURRENT_EMPLOYEE_ID)!
 
 function SidebarBrand() {
   return (
@@ -45,11 +49,68 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   )
 }
 
-function SidebarPanel({ onNavigate }: { onNavigate?: () => void }) {
+function MobileSidebarLinks({ onNavigate }: { onNavigate?: () => void }) {
+  return (
+    <div className="space-y-1 border-t border-border p-4">
+      <div className="flex min-h-11 items-center justify-between rounded-md px-3 py-2.5">
+        <span className="text-sm font-medium text-muted-foreground">Theme</span>
+        <ThemeToggle />
+      </div>
+
+      <NavLink
+        to="/notifications"
+        onClick={onNavigate}
+        className={({ isActive }) =>
+          cn(
+            'flex min-h-11 items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors',
+            isActive
+              ? 'bg-primary text-primary-foreground'
+              : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
+          )
+        }
+      >
+        <Bell className="h-4 w-4 shrink-0" />
+        Notifications
+      </NavLink>
+
+      <NavLink
+        to="/profile"
+        onClick={onNavigate}
+        className={({ isActive }) =>
+          cn(
+            'flex min-h-11 items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors',
+            isActive
+              ? 'bg-primary text-primary-foreground'
+              : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
+          )
+        }
+      >
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+          {currentEmployee.avatar}
+        </div>
+        <div className="min-w-0">
+          <p className="truncate">Profile</p>
+          <p className="truncate text-xs font-normal text-muted-foreground">
+            {currentEmployee.name}
+          </p>
+        </div>
+      </NavLink>
+    </div>
+  )
+}
+
+function SidebarPanel({
+  onNavigate,
+  showMobileLinks = false,
+}: {
+  onNavigate?: () => void
+  showMobileLinks?: boolean
+}) {
   return (
     <>
       <SidebarBrand />
       <SidebarNav onNavigate={onNavigate} />
+      {showMobileLinks && <MobileSidebarLinks onNavigate={onNavigate} />}
     </>
   )
 }
@@ -87,7 +148,7 @@ export function Sidebar() {
       <div className="lg:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen} className="w-64 border-r border-border">
           <SheetContent>
-            <SidebarPanel onNavigate={closeSidebar} />
+            <SidebarPanel onNavigate={closeSidebar} showMobileLinks />
           </SheetContent>
         </Sheet>
       </div>

@@ -24,13 +24,16 @@ export function Header({ employee, title, description }: HeaderProps) {
           )}
         </div>
 
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="hidden shrink-0 items-center gap-2 sm:gap-3 lg:flex">
           <ThemeToggle />
 
           <Link
             to="/notifications"
             aria-label="Notifications"
-            className={cn(buttonVariants({ variant: 'outline', size: 'icon' }))}
+            className={cn(
+              buttonVariants({ variant: 'outline', size: 'icon' }),
+              'hidden lg:inline-flex',
+            )}
           >
             <Bell className="h-4 w-4" />
           </Link>
@@ -38,7 +41,7 @@ export function Header({ employee, title, description }: HeaderProps) {
           <Link
             to="/profile"
             className={cn(
-              'flex min-h-10 items-center gap-3 rounded-lg border border-border px-3 py-2 transition-colors hover:bg-accent',
+              'hidden min-h-10 items-center gap-3 rounded-lg border border-border px-3 py-2 transition-colors hover:bg-accent lg:flex',
             )}
           >
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
